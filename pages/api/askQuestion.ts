@@ -33,7 +33,7 @@ export default async function handler(
         user: {
             _id: 'ChatGPT',
             name: 'ChatGPT',
-            avatar: "/imges/ChatGPT.png",
+            avatar: "https://res.cloudinary.com/dpmd0fdsa/image/upload/v1689854141/ChatGPT_ewtkoa.png",
         },
     };
 

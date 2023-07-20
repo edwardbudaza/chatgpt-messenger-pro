@@ -6,6 +6,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
+import ModelSelection from "./ModelSelection";
 
 type Props = {
   chatId: string;
@@ -37,7 +38,7 @@ function ChatInput({ chatId }: Props) {
     } 
     
     await addDoc(
-      collection(db, 'users', session?.user?.email!, 'chats', chatId, 'message'), 
+      collection(db, 'users', session?.user?.email!, 'chats', chatId, 'messages'), 
       message
     )
 
@@ -81,8 +82,9 @@ function ChatInput({ chatId }: Props) {
         </button>
       </form>
 
-      <div>
-        {/* Model Selection  */}
+      <div className="md:hidden">
+        {/* Model Selection on small screen  */}
+        <ModelSelection />
       </div>
 
     </div>
